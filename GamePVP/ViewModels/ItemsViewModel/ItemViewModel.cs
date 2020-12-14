@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using ILogic.ItemFolder;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Logic.ItemsFolder
+namespace GamePVP.ViewModels.ItemsViewModel
 {
-    public class Item : IItem
+    public class ItemViewModel
     {
         public string Name { get; set; }
         public int HP { get; set; }

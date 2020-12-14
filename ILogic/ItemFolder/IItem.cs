@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ILogic.ItemFolder;
 
-namespace Logic.ItemsFolder
+namespace ILogic.ItemFolder
 {
-    public class Item : IItem
+    public interface IItem
     {
         public string Name { get; set; }
         public int HP { get; set; }

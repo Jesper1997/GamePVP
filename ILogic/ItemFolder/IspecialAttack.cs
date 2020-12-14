@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ILogic.ItemFolder;
 
-namespace Logic.ItemsFolder
+namespace ILogic.ItemFolder
 {
-    public class SpecialAttack : IspecialAttack
+    public interface IspecialAttack
     {
         public string Name { get; set; }
         public string AttackType { get; set; }

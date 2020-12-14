@@ -5,11 +5,19 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamePVP", "GamePVP\GamePVP.csproj", "{21DFCF6B-C8CC-4632-B9C4-7B7A53D404BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicFactory", "LogicFactory\LogicFactory.csproj", "{8D0F068F-7DA9-4714-9D22-2EBCEFFF63F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicFactory", "LogicFactory\LogicFactory.csproj", "{8D0F068F-7DA9-4714-9D22-2EBCEFFF63F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILogic", "ILogic\ILogic.csproj", "{47BE3954-FCED-4E19-B55C-6996F4C6CA6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ILogic", "ILogic\ILogic.csproj", "{47BE3954-FCED-4E19-B55C-6996F4C6CA6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{9343B5D2-4076-4C15-A11C-BFE0C5A9AC02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{9343B5D2-4076-4C15-A11C-BFE0C5A9AC02}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{D3B1864C-F30D-42FC-A76E-B98AAFC564B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDal", "IDal\IDal.csproj", "{DA389F62-8E64-497D-800B-4095F677FDC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalFactoty", "DalFactoty\DalFactoty.csproj", "{EEBB4F96-4B13-47C6-8F27-E6A24EF82082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleUnit", "BattleUnit\BattleUnit.csproj", "{FF4C2E81-FE77-4978-B3BF-851D376048E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,22 @@ Global
 		{9343B5D2-4076-4C15-A11C-BFE0C5A9AC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9343B5D2-4076-4C15-A11C-BFE0C5A9AC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9343B5D2-4076-4C15-A11C-BFE0C5A9AC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B1864C-F30D-42FC-A76E-B98AAFC564B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B1864C-F30D-42FC-A76E-B98AAFC564B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B1864C-F30D-42FC-A76E-B98AAFC564B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B1864C-F30D-42FC-A76E-B98AAFC564B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA389F62-8E64-497D-800B-4095F677FDC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA389F62-8E64-497D-800B-4095F677FDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA389F62-8E64-497D-800B-4095F677FDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA389F62-8E64-497D-800B-4095F677FDC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEBB4F96-4B13-47C6-8F27-E6A24EF82082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEBB4F96-4B13-47C6-8F27-E6A24EF82082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEBB4F96-4B13-47C6-8F27-E6A24EF82082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEBB4F96-4B13-47C6-8F27-E6A24EF82082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4C2E81-FE77-4978-B3BF-851D376048E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4C2E81-FE77-4978-B3BF-851D376048E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4C2E81-FE77-4978-B3BF-851D376048E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4C2E81-FE77-4978-B3BF-851D376048E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

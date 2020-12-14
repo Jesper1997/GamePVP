@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ILogic.IUserFolder
+namespace IDal.DTO.DTOUserFolder
 {
-    public interface ICharacter
+    public class DTOCharacter
     {
-        public IUser User { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public DTOUser DTOUser { get; set; }
         public int MaxHP { get; set; }
         public int HP { get; set; }
         public int AttackTotalValue { get; set; }
@@ -17,11 +20,5 @@ namespace ILogic.IUserFolder
         public int BaseSpecialAttack { get; set; }
         public int AgilityTotalValue { get; set; }
         public int BaseAgility { get; set; }
-
-        public List<ItemFolder.IEquipment> Equipment { get; set; }
-
-        public void AttackTheOpponent();
-
-        public void EquipItem(string NameItem);
     }
 }

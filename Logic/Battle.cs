@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ILogic;
+using ILogic.IUserFolder;
+using Logic.ItemsFolder;
 
 namespace Logic
 {
-    class Battle
+    public class Battle : IBattle
     {
-        public List<UserFolder.User> Players { get; set; }
+        public List<ICharacter> characters { get; set; }
+
+        public void ExecuteAttack(string attackname, int playerturn)
+        {
+            //foreach (Equipment equipment in characters[playerturn]. )
+            {
+            }
+        }
     }
 }

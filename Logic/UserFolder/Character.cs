@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using IDal.DTO.DTOUserFolder;
 using ILogic.IUserFolder;
+using ILogic.ItemFolder;
+using Logic.ItemsFolder;
 
 namespace Logic.UserFolder
 {
@@ -17,6 +20,26 @@ namespace Logic.UserFolder
         public int BaseSpecialAttack { get; set; }
         public int AgilityTotalValue { get; set; }
         public int BaseAgility { get; set; }
+        public IUser User { get; set; }
+
+        public List<IEquipment> Equipment { get; set; }
+
+
+        public Character()
+        {
+            this.Equipment = new List<IEquipment>();
+            IspecialAttack ispecial = new SpecialAttack
+            {
+                AttackMutiplier = 1,
+                AttackType = "attack",
+                BaseAccuracy = 90,
+                Name = "fist"
+            };
+            IEquipment equipment = new Equipment();
+            equipment.SpecialAttacks.Add(ispecial);
+            this.Equipment.Add(equipment);
+
+        }
 
         public void AttackTheOpponent()
         {

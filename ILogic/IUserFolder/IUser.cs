@@ -6,12 +6,10 @@ namespace ILogic.IUserFolder
 {
     public interface IUser
     {
-        public ICharacter UsedCharacter { get; set; }
+        List<ICharacter> characters { get; set; } 
         public string Name { get; set; }
-
         public int Points { get; set; }
 
-        public void Login(string name, string pW);
-
+        public IUser CreateCharacter(int HP, int Attack, int SpecialAttack, int Defence, int Agilety, IUser user);
     }
 }

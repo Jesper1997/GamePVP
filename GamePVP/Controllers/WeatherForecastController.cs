@@ -39,7 +39,7 @@ namespace GamePVP.Controllers
         [Route("api/helloworld")]
         public string GETString()
         {
-            LogicFactory.UserManagerFactory factory = new LogicFactory.UserManagerFactory();
+            LogicFactory.UserFolderFactory factory = new LogicFactory.UserFolderFactory();
             ILogic.IUserFolder.IUsermanger usermanger = factory.UserManager;
             return "Hello World";
         }
