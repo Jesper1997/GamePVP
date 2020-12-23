@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using IDal.DTO;
 using Microsoft.EntityFrameworkCore;
+using Model;
+using Model.Items;
 using MySQL.Data.EntityFrameworkCore;
 
-namespace DAL
+namespace Dal
 {
-    class DBCreate: DbContext
+    public class DBCreate : DbContext
     {
-        //Interface proberen
-        internal protected DbSet<IDal.DTO.DTOUserFolder.DTOUser> user { get; set; }
-        internal protected DbSet<IDal.DTO.DTOUserFolder.DTOCharacter> Characters { get; set; }
+        internal protected DbSet<User> user { get; set; }
+        internal protected DbSet<Character> character {get; set;}
+        internal protected DbSet<Equipment> equipment { get; set; }
+        internal protected DbSet<Attack> attacks { get; set; }
 
         public void EnsureDbIsCreated()
         {
@@ -28,38 +28,12 @@ namespace DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //Tabel van de user
+            //To CreateTable
             base.OnModelCreating(builder);
-            builder.Entity<IDal.DTO.DTOUserFolder.DTOUser>
-                (entity =>
-                {
-                    entity.HasKey(e => e.Name);
-                    entity.Property(e => e.PW).IsRequired();
-                    entity.Property(e => e.Points);
-                }
-                );
-            //TODO Entity Automatisch aan laten maken
-            //Tabel van de Character
-            builder.Entity<IDal.DTO.DTOUserFolder.DTOCharacter>
-                (entity =>
-                {
-                    entity.HasKey(e => e.Id);
-                    entity.Property(e => e.MaxHP);
-                    entity.Property(e => e.HP);
-                    entity.Property(e => e.BaseAttack);
-                    entity.Property(e => e.AttackTotalValue);
-                    entity.Property(e => e.BaseDefence);
-                    entity.Property(e => e.DefenceTotalValue);
-                    entity.Property(e => e.BaseSpecialAttack);
-                    entity.Property(e => e.SpecialAttackTotlaValue);
-                    entity.Property(e => e.BaseAgility);
-                    entity.Property(e => e.BaseAgility);
-                    entity.HasOne(d => d.DTOUser)
-                          .WithMany(p => p.Chachters)
-                          .IsRequired();
-                }
-                );
-            
+            builder.Entity<User>();
+            builder.Entity<Character>();
+            builder.Entity<Equipment>();
+            builder.Entity<Attack>();
         }
     }
 }

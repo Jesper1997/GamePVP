@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
+using ILoigc;
+using LogicFactory;
+
 
 namespace GamePVP.Controllers
 {
@@ -13,29 +16,34 @@ namespace GamePVP.Controllers
     public class LoginController : ControllerBase
     {
         private Encoding encoding = new Encoding();
-        private LogicFactory.UserFolderFactory factory;
+        private UserManagerFactory _userManagerFactory;
 
         [HttpPost]
         [Route("Registreer")]
         public IActionResult Registreer([FromBody] ViewModels.RegistreerViewModel registreer)
         {
-            //ViewModels.RegistreerViewModel registreer = data;
-            factory = new LogicFactory.UserFolderFactory();
-            ILogic.IUserFolder.IUsermanger usermanger = factory.UserManager;
-            //byte pW = Convert.ToByte(registreer.Pw);
-            ILogic.IUserFolder.IUser user = usermanger.CreateUser(registreer.Name,encoding.StrToByte(registreer.Pw), encoding.StrToByte(registreer.PwCheck));
-
-            return Ok(value: user);
+            _userManagerFactory = new UserManagerFactory();
+            IUserManager userManager = _userManagerFactory.UserManager;
+            return Ok(value: userManager.CreateUser(registreer.Name, encoding.StrToByte(registreer.Pw), encoding.StrToByte(registreer.PwCheck)));
         }
 
         [HttpGet]
         [Route("Login")]
-        public IActionResult Login ([FromBody] ViewModels.LoginViewModel login)
+        public IActionResult Login([FromBody] ViewModels.LoginViewModel login)
         {
-            factory = new LogicFactory.UserFolderFactory();
-            ILogic.IUserFolder.IUsermanger usermanger = factory.UserManager;
-            encoding = new Encoding();           
-            return Ok(usermanger.Login(login.Name, encoding.StrToByte(login.Pw)));
+            _userManagerFactory = new UserManagerFactory();
+            IUserManager userManager = _userManagerFactory.UserManager;
+
+            return Ok(value: userManager.LoginUser(login.Name, encoding.StrToByte(login.Pw)));
+        }
+
+        [HttpGet]
+        [Route("GetAll")]
+        public IActionResult GetAllUser()
+        {
+            _userManagerFactory = new UserManagerFactory();
+            IUserManager userManager = _userManagerFactory.UserManager;
+            return Ok(value: userManager.GetUsers());
         }
     }
 }

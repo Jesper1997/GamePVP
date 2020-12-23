@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
 using LogicFactory;
-using ILogic.IUserFolder;
+using ILoigc;
 
 namespace GamePVP.Controllers
 {
@@ -13,16 +12,15 @@ namespace GamePVP.Controllers
     [Route("[Controller]")]
     public class UserController : ControllerBase
     {
-        
+        private UserManagerFactory _userManagerFactory;
+
         [HttpPost]
         [Route("CreateCharacter")]
         public IActionResult CreateCharacter(ViewModels.UserViewModel userView)
         {
-            UserFolderFactory factory = new UserFolderFactory();
-            IUser user = factory.User;
-            user.Name = userView.Name;
-            user.CreateCharacter(userView.character.MaxHP, userView.character.BaseAttack, userView.character.BaseSpecialAttack, userView.character.DefenceTotalValue, userView.character.BaseAgility, user);
-            return Ok(user);
+            _userManagerFactory = new UserManagerFactory();
+            IUserManager userManager = _userManagerFactory.UserManager;
+            return Ok(value: userManager.CreateCharacter(userView.character.MaxHP, userView.character.BaseAttack, userView.character.BaseSpecialAttack, userView.character.BaseDefence, userView.character.BaseAgility, userView.id));
         }
     }
 }

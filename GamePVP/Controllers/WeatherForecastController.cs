@@ -35,14 +35,5 @@ namespace GamePVP.Controllers
             })
             .ToArray();
         }
-        [HttpGet]
-        [Route("api/helloworld")]
-        public string GETString()
-        {
-            LogicFactory.UserFolderFactory factory = new LogicFactory.UserFolderFactory();
-            ILogic.IUserFolder.IUsermanger usermanger = factory.UserManager;
-            return "Hello World";
-        }
-
     }
 }

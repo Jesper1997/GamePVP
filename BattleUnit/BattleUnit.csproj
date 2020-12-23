@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GamePVP\GamePVP.csproj" />
-    <ProjectReference Include="..\ILogic\ILogic.csproj" />
   </ItemGroup>
 
 </Project>

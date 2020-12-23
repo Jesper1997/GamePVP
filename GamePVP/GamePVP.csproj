@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ILogic\ILogic.csproj" />
+    <ProjectReference Include="..\ILoigc\ILoigc.csproj" />
     <ProjectReference Include="..\LogicFactory\LogicFactory.csproj" />
   </ItemGroup>
 

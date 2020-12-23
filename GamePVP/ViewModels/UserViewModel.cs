@@ -7,7 +7,7 @@ namespace GamePVP.ViewModels
 {
     public class UserViewModel
     {
-        public string Name { get; set; }
+        public int id { get; set; }
         public CharacterViewModel character { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using GamePVP.Controllers;
 using GamePVP.ViewModels;
 using System.Collections.Generic;
 using GamePVP.ViewModels.ItemsViewModel;
-using ILogic;
 
 namespace BattleUnit
 {
@@ -84,7 +83,7 @@ namespace BattleUnit
                 
             };
             BattleController battleController = new BattleController();
-            IBattle battle = (IBattle)battleController.Battle(battleView);
+            //IBattle battle = (IBattle)battleController.Battle(battleView);
             
         }
     }
