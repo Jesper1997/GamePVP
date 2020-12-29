@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using IModel;
 
 namespace Model
@@ -13,17 +14,17 @@ namespace Model
         public string Pw { get; set; }
 
         public  List<Character> Characters { get; set; }
-
-        List<ICharacter> IUser.characters => converCharacters();
+        [JsonIgnore]
+        List<@int> IUser.characters => converCharacters();
 
         public User()
         {
             Characters = new List<Character>();
         }
 
-        private List<ICharacter> converCharacters()
+        private List<@int> converCharacters()
         {
-            List<ICharacter> characters = new List<ICharacter>();
+            List<@int> characters = new List<@int>();
             foreach(var character in Characters)
             {
                 characters.Add(character);

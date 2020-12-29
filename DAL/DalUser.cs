@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using IDal;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using IModel;
 using Model;
 using Model.Items;
+using System;
 
 namespace Dal
 {
@@ -31,18 +30,18 @@ namespace Dal
         {
             using (var context = new DBCreate())
             {
-                //try
-                //{
+                try
+                {
                     DB = new DBCreate();
-                    DB.EnsureDbIsCreated();
+                    context.EnsureDbIsCreated();
                     context.user.Add((User)user);
                     context.SaveChanges();
-                //}
-                //catch
-                //{
-                //    //TODO Implement Exceptioin 
-                //    new NotImplementedException();
-                //}
+                }
+                catch
+                {
+                    //TODO Implement Exceptioin 
+                    new NotImplementedException();
+                }
             }
         }
 
@@ -50,8 +49,7 @@ namespace Dal
         {
             using (var context = new DBCreate())
             {
-                DB = new DBCreate();
-                DB.EnsureDbIsCreated();
+                context.EnsureDbIsCreated();
                 context.user.Update((User)user);
                 context.SaveChanges();
             }

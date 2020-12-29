@@ -1,5 +1,4 @@
-﻿using System;
-using ILoigc;
+﻿using ILoigc;
 using IModel;
 using IDal;
 using ModelFactory;
@@ -31,10 +30,11 @@ namespace Logic
                 AgilityTotalValue = Agilety,
                 User = user
             };
-            user.Characters.Add(character);
 
             _dalFactory = new DalUserFactory();
             IDalUser dalUser = _dalFactory.DalUser;
+            character.Equipment.Add(dalUser.GetBaseEquipment());
+            user.Characters.Add(character);
             dalUser.UpdateUser(user); ;
             
             return user;

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace GamePVP.ViewModels
 {
-    public class BattleViewModel
+    public class LookForBattleViewModel
     {
-        public int battleid { get; set;}
-        public int Attackid { get; set; }
+        public int Characterid { get; set; }
     }
 }

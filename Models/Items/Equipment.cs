@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using IModel.Items;
 
 namespace Model.Items
 {
     public class Equipment : Item, IEquipment
     {
-        [Key]
-        public int id { get; set; }
         public List<Attack> Attacks { get; set; }
-
+        [JsonIgnore]
         public List<IAttack> GetAttacks => ConverAttacks();
 
         public Equipment()

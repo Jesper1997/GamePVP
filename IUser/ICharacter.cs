@@ -1,10 +1,9 @@
-﻿using System;
+﻿using IModel.Items;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IModel
 {
-    public interface ICharacter
+    public interface @int
     {
         public int MaxHP { get; set; }
         public int HP { get; set; }
@@ -15,6 +14,7 @@ namespace IModel
         public int SpecialAttackTotlaValue { get; set; }
         public int BaseSpecialAttack { get; set; }
         public int AgilityTotalValue { get; set; }
-        public int BaseAgility { get; set; }        
+        public int BaseAgility { get; set; }
+        public List<IEquipment> GetEquipment { get; }
     }
 }

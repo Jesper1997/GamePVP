@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using IModel;
 using IModel.Items;
 
 namespace Model.Items

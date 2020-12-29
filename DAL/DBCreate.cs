@@ -12,6 +12,7 @@ namespace Dal
         internal protected DbSet<Character> character {get; set;}
         internal protected DbSet<Equipment> equipment { get; set; }
         internal protected DbSet<Attack> attacks { get; set; }
+        internal protected DbSet<Battle> Battles { get; set; }
 
         public void EnsureDbIsCreated()
         {
@@ -34,6 +35,7 @@ namespace Dal
             builder.Entity<Character>();
             builder.Entity<Equipment>();
             builder.Entity<Attack>();
+            builder.Entity<Battle>();
         }
     }
 }

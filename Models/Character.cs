@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace Model
 {
-    public class Character : ICharacter
+    public class Character : @int
     {
         [Key]
         public int id { get; set; }
@@ -25,10 +25,9 @@ namespace Model
         public int BaseAgility { get; set; }
         [JsonIgnore]
         public User User { get; set; }
-
-        List<IEquipment> GetEquipment => converEquipment();
         public List<Equipment> Equipment { get; set; }
-        
+        [JsonIgnore]
+        List<IEquipment> @int.GetEquipment => converEquipment();
 
         public Character()
         {
