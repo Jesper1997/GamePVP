@@ -11,6 +11,7 @@ namespace Model
         [Key]
         public int id { get; set; }
         public string name { get; set; }
+        [JsonIgnore]
         public string Pw { get; set; }
 
         public  List<Character> Characters { get; set; }

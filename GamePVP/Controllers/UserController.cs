@@ -14,6 +14,7 @@ namespace GamePVP.Controllers
     {
         private UserManagerFactory _userManagerFactory;
 
+
         [HttpPost]
         [Route("CreateCharacter")]
         public IActionResult CreateCharacter(ViewModels.UserViewModel userView)

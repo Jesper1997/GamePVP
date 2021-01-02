@@ -6,13 +6,13 @@ using LogicFactory;
 using ILoigc;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace GamePVP.Controllers
 {
     [Route("[Controller]")]
     public class BattleController : ControllerBase
     {
         private BattleFactory _battleFactory;
+
         [HttpGet]
         [Route("ExecuteAttack")]
         //Dit gaan doen met ID en een actie zo min mogelijk in fomatie op en neer sturen

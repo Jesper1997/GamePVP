@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using ILoigc;
 using LogicFactory;
 
-
 namespace GamePVP.Controllers
 {
     [ApiController]
@@ -26,6 +25,7 @@ namespace GamePVP.Controllers
             IUserManager userManager = _userManagerFactory.UserManager;
             return Ok(value: userManager.CreateUser(registreer.Name, encoding.StrToByte(registreer.Pw), encoding.StrToByte(registreer.PwCheck)));
         }
+
 
         [HttpGet]
         [Route("Login")]
