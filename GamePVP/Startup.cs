@@ -15,7 +15,6 @@ namespace GamePVP
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrgins = "MyAllowSpecificOrgins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
