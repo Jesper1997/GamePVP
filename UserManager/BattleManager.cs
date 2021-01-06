@@ -43,7 +43,7 @@ namespace Logic
             }
         }
 
-        private IBattle Createbattle(int totalpoints, @int character, IDalBattle dalBattle)
+        private IBattle Createbattle(int totalpoints, Icharacter character, IDalBattle dalBattle)
         {
             _battleFactory = new BattleRelatedFactory();
             IBattle battle = _battleFactory.CreateBattle;
@@ -60,8 +60,8 @@ namespace Logic
             IDalBattle dalBattle = _dalBattleFactory.DalBattle;
             IBattle battle = dalBattle.GetBattleById(battleid);
             Attack attack = dalBattle.GetAttackById(attackid);
-            @int character = battle.IFighters[battle.playersturn];
-            @int getattacked;
+            Icharacter character = battle.IFighters[battle.playersturn];
+            Icharacter getattacked;
             if(battle.playersturn == 0)
             {
                 getattacked = battle.IFighters[1];
@@ -82,7 +82,7 @@ namespace Logic
             return battle;
         }
 
-        private void Attack(int attacks, @int getsattacked, Attack attack)
+        private void Attack(int attacks, Icharacter getsattacked, Attack attack)
         {
             Random r = new Random();
             if (r.Next(0, 100) < attack.BaseAccuracy)

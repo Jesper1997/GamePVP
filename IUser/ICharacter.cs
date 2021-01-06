@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IModel
 {
-    public interface @int
+    public interface Icharacter
     {
         public int MaxHP { get; set; }
         public int HP { get; set; }

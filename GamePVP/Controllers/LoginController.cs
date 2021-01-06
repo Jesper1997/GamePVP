@@ -27,7 +27,7 @@ namespace GamePVP.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
         public IActionResult Login([FromBody] ViewModels.LoginViewModel login)
         {

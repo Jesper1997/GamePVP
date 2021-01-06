@@ -8,6 +8,6 @@ namespace IModel
         public int id { get; set; }
         public string name { get; set; }
         public string Pw { get; set; }
-        public List<@int> characters{get;}
+        public List<Icharacter> characters{get;}
     }
 }

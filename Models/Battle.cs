@@ -10,7 +10,7 @@ namespace Model
         [Key]
         public int id { get; set; }
         [JsonIgnore]
-        public List<@int> IFighters { get => ConverCharacters(); }
+        public List<Icharacter> IFighters { get => ConverCharacters(); }
         public List<Character> Fighters { get; set; }
         public int PlayerSkillPoints { get; set; }
         public int playersturn { get; set; }
@@ -20,9 +20,9 @@ namespace Model
             Fighters = new List<Character>();
         }
 
-        private List<@int> ConverCharacters()
+        private List<Icharacter> ConverCharacters()
         {
-            List<@int> characters = new List<@int>();
+            List<Icharacter> characters = new List<Icharacter>();
             foreach (Character chara in Fighters)
             {
                 characters.Add(chara);

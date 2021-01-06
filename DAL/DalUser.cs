@@ -17,7 +17,7 @@ namespace Dal
             using (var context = new DBCreate())
             {
                 var users = context.user;
-                List<IUser> Users = new List<IUser>(); ;
+                List<IUser> Users = new List<IUser>();
                 foreach(var user in users)
                 {
                     Users.Add(user);

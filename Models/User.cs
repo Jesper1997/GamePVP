@@ -16,16 +16,16 @@ namespace Model
 
         public  List<Character> Characters { get; set; }
         [JsonIgnore]
-        List<@int> IUser.characters => converCharacters();
+        List<Icharacter> IUser.characters => converCharacters();
 
         public User()
         {
             Characters = new List<Character>();
         }
 
-        private List<@int> converCharacters()
+        private List<Icharacter> converCharacters()
         {
-            List<@int> characters = new List<@int>();
+            List<Icharacter> characters = new List<Icharacter>();
             foreach(var character in Characters)
             {
                 characters.Add(character);
