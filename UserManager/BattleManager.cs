@@ -13,54 +13,55 @@ namespace Logic
 {
     public class BattleManager: IBattleManager
     {
-        private BattleRelatedFactory _battleFactory;
-        private DalBattleFactroy _dalBattleFactory;
-
-
+        BattleRelatedFactory _battleFactory;
+        IDalBattle _dalBattle;
         //injection via constructor
-
-        public IBattle EnterBattle(int characterid, IDalBattle dalBattle)
+        public BattleManager(IDalBattle dalBattle)
         {
-            Character character = dalBattle.GetCharacterbyid(characterid);
-            List<Battle> battles = dalBattle.GetAllBattles();
+            _dalBattle = dalBattle;
+
+        }
+
+        public IBattle EnterBattle(int characterid)
+        {
+            Character character = _dalBattle.GetCharacterbyid(characterid);
+            List<Battle> battles = _dalBattle.GetAllBattles();
             //Pointtotal opslaan bij character?
             int pointtotal = character.AgilityTotalValue + character.AttackTotalValue + character.DefenceTotalValue + character.SpecialAttackTotlaValue;
             if (battles.Count >= 0)
             {
                 foreach(Battle battle in battles)
                 {
-                    if (battle.PlayerSkillPoints +2 >=  pointtotal && battle.PlayerSkillPoints - 2 <= pointtotal && battle.IFighters.Count != 2)
+                    if (battle.PlayerSkillPoints +2 >=  pointtotal && battle.PlayerSkillPoints - 2 <= pointtotal && battle.IFighters.Count == 1)
                     {
                         battle.InsertFighter(character);
-                        dalBattle.UpdateBattle(battle);
+                        _dalBattle.UpdateBattle(battle);
                         return battle;
                     }
                 }
-                return Createbattle(pointtotal, character, dalBattle);
+                return Createbattle(pointtotal, character);
             }
             else
             {
-                return Createbattle(pointtotal, character, dalBattle);
+                return Createbattle(pointtotal, character);
             }
         }
 
-        private IBattle Createbattle(int totalpoints, Icharacter character, IDalBattle dalBattle)
+        private IBattle Createbattle(int totalpoints, Icharacter character)
         {
             _battleFactory = new BattleRelatedFactory();
             IBattle battle = _battleFactory.CreateBattle;
             battle.InsertFighter(character);
             battle.PlayerSkillPoints = totalpoints;
-            dalBattle.insertBattle(battle);
+            _dalBattle.insertBattle(battle);
             return battle;
         }
         
         //TODO: Controle of speler de aanval wel kan uitvoeren. of wel kijken of character wel de juiste equipment bezit
         public IBattle excuteHostileAction(int battleid, int attackid)
         {
-            _dalBattleFactory = new DalBattleFactroy();
-            IDalBattle dalBattle = _dalBattleFactory.DalBattle;
-            IBattle battle = dalBattle.GetBattleById(battleid);
-            Attack attack = dalBattle.GetAttackById(attackid);
+            IBattle battle = _dalBattle.GetBattleById(battleid);
+            Attack attack = _dalBattle.GetAttackById(attackid);
             Icharacter character = battle.IFighters[battle.playersturn];
             Icharacter getattacked;
             if(battle.playersturn == 0)
@@ -79,7 +80,7 @@ namespace Logic
             {
                 Attack(character.AttackTotalValue, getattacked, attack);
             }
-            dalBattle.UpdateBattle(battle);
+            _dalBattle.UpdateBattle(battle);
             return battle;
         }
 

@@ -19,18 +19,17 @@ namespace BattleUnit
         [Fact]
         public void BattleMatchMakingfortyPointsTest()
         {
-            BattleManager battle = new BattleManager();
-            battle.EnterBattle(0, new DummyDAL());
-            Battle bat = (Battle)battle.EnterBattle(0, new DummyDAL());
-            Assert.True(bat.id == 3);
+            BattleManager battle = new BattleManager(new DummyDAL());
+            Battle bat = (Battle)battle.EnterBattle(0);
+            Assert.Equal(3,bat.id);
             Assert.False(bat.IFighters.Count == 1);
         }
         //Test out to many skillpoints
         [Fact]
         public void BattleMAtchMakingeightySkillPoints()
         {
-            BattleManager battle = new BattleManager();
-            Battle bat = (Battle)battle.EnterBattle(5, new DummyDAL());
+            BattleManager battle = new BattleManager(new DummyDAL());
+            Battle bat = (Battle)battle.EnterBattle(5);
             Assert.True(bat.IFighters.Count == 1);
             Assert.Equal(80, bat.PlayerSkillPoints);
         }
@@ -39,8 +38,8 @@ namespace BattleUnit
         [Fact]
         public void BAttleMatchMakingFortytwoSkilpoints()
         {
-            BattleManager battle = new BattleManager();
-            Battle bat = (Battle)battle.EnterBattle(6, new DummyDAL());
+            BattleManager battle = new BattleManager(new DummyDAL());
+            Battle bat = (Battle)battle.EnterBattle(6);
             Assert.False(bat.IFighters.Count == 1);
             Assert.True(bat.id == 3);
             Assert.Equal(12, bat.Fighters[1].id);

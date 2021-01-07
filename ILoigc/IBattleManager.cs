@@ -8,7 +8,7 @@ namespace ILoigc
 {
     public interface IBattleManager
     {
-        public IBattle EnterBattle(int characterid, IDalBattle dalBattle);
+        public IBattle EnterBattle(int characterid);
         public IBattle excuteHostileAction(int battleid, int attackid);
     }
 }
