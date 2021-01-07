@@ -16,21 +16,22 @@ namespace Logic
         private BattleRelatedFactory _battleFactory;
         private DalBattleFactroy _dalBattleFactory;
 
-        public IBattle EnterBattle(int characterid)
+
+        //injection via constructor
+
+        public IBattle EnterBattle(int characterid, IDalBattle dalBattle)
         {
-            _dalBattleFactory = new DalBattleFactroy();
-            IDalBattle dalBattle = _dalBattleFactory.DalBattle;
             Character character = dalBattle.GetCharacterbyid(characterid);
             List<Battle> battles = dalBattle.GetAllBattles();
             //Pointtotal opslaan bij character?
-            int pointtotal = character.AgilityTotalValue + character.AttackTotalValue + character.AttackTotalValue + character.SpecialAttackTotlaValue;
-            if (battles.Count <= 0)
+            int pointtotal = character.AgilityTotalValue + character.AttackTotalValue + character.DefenceTotalValue + character.SpecialAttackTotlaValue;
+            if (battles.Count >= 0)
             {
                 foreach(Battle battle in battles)
                 {
-                    if (battle.PlayerSkillPoints +2 >=  pointtotal && battle.PlayerSkillPoints - 2 <= pointtotal)
+                    if (battle.PlayerSkillPoints +2 >=  pointtotal && battle.PlayerSkillPoints - 2 <= pointtotal && battle.IFighters.Count != 2)
                     {
-                        battle.IFighters.Add(character);
+                        battle.InsertFighter(character);
                         dalBattle.UpdateBattle(battle);
                         return battle;
                     }
@@ -47,7 +48,7 @@ namespace Logic
         {
             _battleFactory = new BattleRelatedFactory();
             IBattle battle = _battleFactory.CreateBattle;
-            battle.IFighters.Add(character);
+            battle.InsertFighter(character);
             battle.PlayerSkillPoints = totalpoints;
             dalBattle.insertBattle(battle);
             return battle;

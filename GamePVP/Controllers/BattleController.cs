@@ -23,8 +23,8 @@ namespace GamePVP.Controllers
         }
 
         [HttpGet]
-        [Route("LookForBattle")]
-        public IActionResult LookForBattle([FromBody] ViewModels.LookForBattleViewModel lookForBattle)
+        [Route("LookForBattle/{id}")]
+        public IActionResult LookForBattle([FromRoute] int id)
         {
 
             return Ok();

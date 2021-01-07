@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using IModel;
@@ -10,7 +11,7 @@ namespace Model
         [Key]
         public int id { get; set; }
         [JsonIgnore]
-        public List<Icharacter> IFighters { get => ConverCharacters(); }
+        public List<Icharacter> IFighters { get => ConverCharacters();}
         public List<Character> Fighters { get; set; }
         public int PlayerSkillPoints { get; set; }
         public int playersturn { get; set; }
@@ -30,5 +31,9 @@ namespace Model
             return characters;
         }
 
+        public void InsertFighter(Icharacter icharacter)
+        {
+            Fighters.Add((Character)icharacter);
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace LogicFactory
 {
     public class BattleFactory
     {
+        // dalfactory aan roepen en dal meegeven
         public BattleManager  Battle => new BattleManager();
     }
 }
