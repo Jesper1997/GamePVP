@@ -36,8 +36,7 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
 - task: VSBuild@1
   inputs:
-    solution: '**\*.sln'
-    restoreNugetPackages: true
+    solution: 'BattleUnit\*.sln'
+    vsVersion: '16.0'
