@@ -31,17 +31,20 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VisualStudioTestPlatformInstaller@1
-  inputs:
-    packageFeedSelector: 'nugetOrg'
-    versionSelector: 'latestPreRelease'
 
 - task: VSTest@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+	platform: '$(buildPlatform)'
+	configuration: '$(buildConfiguration)'
+	searchFolder: '$(System.DefaultWorkingDirectory)'
+	runInParallel: true
+	codeCoverageEnabled: true
+	diagnosticsEnabled: true
 
-- task: DotNetCoreCLI@2
+- task: ArchiveFiles@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
