@@ -36,7 +36,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: VSBuild@1
+
+- task: VSTest@2
   inputs:
-    solution: 'BattleUnit\*.sln'
-    vsVersion: '16.0'
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    vsTestVersion: '16.0'
